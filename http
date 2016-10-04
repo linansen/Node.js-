@@ -16,3 +16,13 @@
          
          The raw headers as they were received are retained in the rawHeaders property, which is an array of [key, value, key2, value2, ...].
          For example, the previous message header object might have a rawHeaders list like the following:
+      
+         [ 'ConTent-Length', '123456',
+           'content-LENGTH', '123',
+           'content-type', 'text/plain',
+           'CONNECTION', 'keep-alive',
+           'Host', 'mysite.com',
+           'accepT', '*/*' 
+        ]
+        
+        
