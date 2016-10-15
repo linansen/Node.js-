@@ -9,7 +9,7 @@ const http_server=http.createServer();
 
     response.end();
 });*/
-//f a client connection emits an 'error' event, it will be forwarded here. 
+//if a client connection emits an 'error' event, it will be forwarded here. 
 //Listener of this event is responsible for closing/destroying the underlying socket. 
 //For example, one may wish to more gracefully close the socket with an HTTP '400 Bad Request' response 
 //instead of abruptly severing the connection.
