@@ -32,6 +32,7 @@ var options={
    or by calling the .resume() method. Until the data is consumed, the 'end' event will not fire.
    Also, until the data is read it will consume memory that can eventually lead to a 'process out of memory' error.
 ***/
+/*
 var request=http.request(options, (response)=>{
      console.info('the response statusCode : '+response.statusCode);
      console.info('the response statusMessage : '+response.statusMessage);
@@ -46,7 +47,9 @@ var request=http.request(options, (response)=>{
      	console.log('no data from server....');
      })
 });
-
+//note: as for http.request,you must use end() manually to end the request !
+request.end();
+*/
 var request=http.get(options,(response)=>{
     console.info('the response statusCode : '+response.statusCode);
     console.info('the response statusMessage : '+response.statusMessage);
@@ -63,8 +66,7 @@ var request=http.get(options,(response)=>{
      })
 
 });
-//note: as for http.request,you must use end() manually to end the request !
-request.end();
+
 
 request.on('error',(error)=>{
    console.log('request the server failly! the code message :'+error.message);
