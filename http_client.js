@@ -46,6 +46,23 @@ var request=http.request(options, (response)=>{
      	console.log('no data from server....');
      })
 });
+
+var request=http.get(options,(response)=>{
+    console.info('the response statusCode : '+response.statusCode);
+    console.info('the response statusMessage : '+response.statusMessage);
+    console.log(' the response headers : '+JSON.stringify(response.headers));
+    response.setEncoding('utf-8');
+    //console.log(response.resume());
+    response.on('data',(chunk)=>{
+     	//console.info();
+     	console.info('at '+new Date()+ ' the chunk : '+chunk.toString());
+     	//console.info(new Date());
+     });
+    response.on('end',()=>{
+     	console.log('no data from server....');
+     })
+
+});
 //note: as for http.request,you must use end() manually to end the request !
 request.end();
 
