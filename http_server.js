@@ -49,7 +49,7 @@ http_server.on('request',(request,response)=>{
         }));
     }
     switch(request.url){
-        
+
         case '/doodle':
         if(request.method==='GET'){
              response.writeHead(200,{'Content-Type':'image/png'});
@@ -61,6 +61,19 @@ http_server.on('request',(request,response)=>{
         if(request.method==='GET'){
              response.writeHead(200,{'Content-Type':'text/plain'}); 
              fs.createReadStream('./as.txt', fs_options).pipe(response);
+        }
+        break;
+
+        case '/upload':
+        if(request.method==='POST'){
+          request.on('data',(chunk)=>{
+            if(!util.isNull(chunk['my_file'])){
+                response.writeHead(200,{'Content-Type':'application/json'})
+                response.write(chunk);
+                console.log(chunk.toString());
+            }
+            response.end('chunk end...');
+          });
         }
         break;
 
