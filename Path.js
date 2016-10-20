@@ -87,6 +87,49 @@ path.format({
 });
 // returns 'file.txt'
 
+/***
+   function: path.isAbsolute(path)
+   description:detemines whether the path is absulute,an absolute path allways resolve to the same location.
+***/
+path.isAbsolute('/uu/gg/xx/jj.c');
+
+/***
+   function: path.join([path1,][path2,].....[pathn,])
+   description:join all the arguments together and normalize the result string 
+***/
+
+path.join('/yy','ff','dd/shs');
+
+/***
+   function: path.parse(path)
+   description:parse the path to a path object ,it is opposite of the path.format()
+***/
+path.parse('/yy/hsjhk/jhxl/shiwio');
+path.parse('/home/user/dir/file.txt')
+// returns
+// {
+//    root : "/",
+//    dir : "/home/user/dir",
+//    base : "file.txt",
+//    ext : ".txt",
+//    name : "file"
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
