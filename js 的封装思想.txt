@@ -1,0 +1,37 @@
+http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html  封装的资料
+
+核心书籍：Object-Oriented JavaScript
+         Professional JavaScript for Web Developers, 2nd Edition
+思想与应用安排如下： 
+        讨论"封装"（Encapsulation），
+        后面的第二部分和第三部分讨论"继承"（Inheritance）。
+        
+封装： 
+     对于js的共识或者基础知识： 
+     1: js 是一门基于j对象而不是面向对象object的语言。在你的周围世界里，描述任何事物都是对象。万物皆对象。但是跟标准的面向
+        对象编程的语言相对而言，js充其量就是画个基于对象的语言。因为他没有class的概念。
+解决方法：
+
+    1:最原始的封装： 
+       将一个对象具备的property组合成一个对象，例如cat：
+       定我们把猫看成一个对象，它有"名字"和"颜色"两个属性。
+　　   var Cat = {
+　　　　name : '',
+　　　　color : ''
+　　   } 
+     这就是个最原始的对象规格schema。
+     现在，我们需要根据这个原型对象的规格（schema），生成两个实例对象。
+　　  var cat1 = {}; // 创建一个空对象
+　　　cat1.name = "大毛"; // 按照原型对象的属性赋值
+　　　cat1.color = "黄色";
+　　  var cat2 = {};
+　　　cat2.name = "二毛";
+　　  cat2.color = "黑色";
+     好了，这就是最简单的封装了，把两个属性封装在一个对象里面。
+     但是，这样的写法有两个缺点：
+     一是如果多生成几个实例，写起来就非常麻烦；
+     二是实例与原型之间，没有任何办法，可以看出有什么联系。
+      
+  2:       
+     
+
