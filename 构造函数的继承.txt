@@ -92,10 +92,45 @@
 ####################################################################################################################################                            
                            
                            
+二: 使用prototype
+    理由： 每个构造函数都有一个所谓prototype属性，该属性指向一个对象，该对象可以存放所有子对象的共同属性。该构造函数的实例都继承该prototype
+           对象的所有属性和方法。
+－－－－－－－－－－ 例如  
+                         function person(name,age){
+                                   this.name=name;
+                                   this.age=age;
+                                   this.say=()=>{
+                                     console.log('my name is :'+name+' and the age is :'+age);
+                                   };
+                                   this.setName=(name)=>{
+                                      this.name=name;
+                                   };
+                                   this.getName=()=>{
+                                      return this.name;
+                                   };
+                                   this.setAge=(age)=>{
+                                      this.age=age;
+                                   };
+                                   this.getAge=()=>{
+                                       return this.age;
+                                   }
+                              }
+                              
+                         function student(scores,sex){
+                            this.scores=scores;
+                            this.sex=sex;
+                         } 
+                        
+                         student.prototype=new person('ansen',24);
+                         student.prototype.constructor=student;//将student的原型对象prototype的构造器重新赋值为student
+                                                               //如果没有赋值，则意味着student.prototype.constructor为person
+                         
+                         var stu=new student([98,87,78],24);
+                         
+           
+ ####################################################################################################################################           
                            
-                           
-                 
-                 
+ 三    直接继承prototype             
                  
                  
                  
