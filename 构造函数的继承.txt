@@ -3,6 +3,112 @@
             
 －－－－－－－1:使用apply或者call绑定机制。
   －－－－－－－－－先介绍apply或者call的使用场景。call([thisObj[,arg1[, arg2[,   [,.argN]]]]]),其中thisObj为当前目标对象。其后都为参数。
-                                               apply(thisObj,[arg1,arg2...]) 
-                    --------------------------其中的apply                                     
-  －－－－－－－－－－－－例如： function  
+                                               apply(thisObj,[arg1,arg2...]) ,其中thisObj代表当前对象，第二个参数为数组。
+                    －－－－－－－－－－－－其中的apply或者call：一个对象调用另一个对象的方法或者一个对象替换掉另一个对象。   
+                    －－－－－－－－－－－－劫持一个对象的方法或者属性。
+  －－－－－－－－－－－－例如： 
+#################################################################################################################################### 
+－－－－－－－－－－－－   function person(name,age){
+                                   this.name=name;
+                                   this.age=age;
+                                   this.say=()=>{
+                                     console.log('my name is :'+name+' and the age is :'+age);
+                                   };
+                                   this.setName=(name)=>{
+                                      this.name=name;
+                                   };
+                                   this.getName=()=>{
+                                      return this.name;
+                                   };
+                                   this.setAge=(age)=>{
+                                      this.age=age;
+                                   };
+                                   this.getAge=()=>{
+                                      return this.age;
+                                   }
+                              }
+－－－－－－－－－－－－－   function student(name,age,sex,scores){
+                              person.apply(this,arguments);
+                              this.sex=sex;
+                              this.scores=scores;
+                           }
+－－－－－－－－－－－－－－var stu=new student('ansen',24,'boy',[100,87,98]);
+                         这个时候stu具备了person里面say的方法。                           #################################################################################################################################### 
+－－－－－－－－－－考虑多继承问题
+                 function person(name,age){
+                                   this.name=name;
+                                   this.age=age;
+                                   this.say=()=>{
+                                     console.log('my name is :'+name+' and the age is :'+age);
+                                   };
+                                   this.setName=(name)=>{
+                                      this.name=name;
+                                   };
+                                   this.getName=()=>{
+                                      return this.name;
+                                   };
+                                   this.setAge=(age)=>{
+                                      this.age=age;
+                                   };
+                                   this.getAge=()=>{
+                                       return this.age;
+                                   }
+                              }
+                              
+                    function programmer(lang,level){
+                             this.lang=this.lang;
+                             this.skill=(lang)=>{
+                             if(this.lang!==null){
+                                  console.log('learn computer programmer..'+ this.lang);
+                               }
+                             else{
+                                
+                             }  
+                             };
+                             this.level='basic';
+                     }
+                     
+                    function student(name,age,sex,scores,lang){
+                              person.apply(this,arguments);
+                              programmer.apply(this,arguments);
+                              this.sex=sex;
+                              this.scores=scores;
+                    }
+                    
+                    
+                           
+####################################################################################################################################                           
+－－－－－－－－－－－－－－－再例如： 
+                           function add(a,b){
+                              return a+b;
+                           } 
+                           function sub(a,b){
+                             return a-b;
+                           }
+                           
+                           －－－－－－这个时候可以使用aplly来讲sub代替add
+                                      sub.apply(add,[1,3]);
+                                      
+####################################################################################################################################                            
+                           
+                           
+                           
+                           
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                       
+
+
+
+
+
+
+
