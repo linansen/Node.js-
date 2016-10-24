@@ -1,0 +1,8 @@
+本章主要内容：
+            对象之间的继承关系： 
+            
+－－－－－－－1:使用apply或者call绑定机制。
+  －－－－－－－－－先介绍apply或者call的使用场景。call([thisObj[,arg1[, arg2[,   [,.argN]]]]]),其中thisObj为当前目标对象。其后都为参数。
+                                               apply(thisObj,[arg1,arg2...]) 
+                    --------------------------其中的apply                                     
+  －－－－－－－－－－－－例如： function  
