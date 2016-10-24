@@ -131,8 +131,33 @@
  ####################################################################################################################################           
                            
  三    直接继承prototype             
-                 
-                 
+                 将parent对象person对象的公共部分抽取出来，存放到person.prototype对象里面。这样让student.prototype直接
+                 指向person.prototype.这样student.prototype和person.prototype都指向同一个对象。一旦修改其中一个，就会相互
+                 影响。
+－－－－－－－－－－－－－例如： 
+                             function person(name,age){
+                               this.name=name;
+                               this.age=age;
+                               this.getName=()=>{
+                                  return this.name;
+                               };
+                               this.getAge=()=>{
+                                  return this.age;
+                               };
+                             }
+                             person.prototype.say=()=>{
+                                 console.log('i am a person...');
+                             }
+                             function student(name,age,sex){
+                                person.apply(this,[name,age]);
+                                this.sex=sex;
+                             }
+                             
+                             student.prototype=person.prototype;
+                             student.prototype.constuctor=student;
+                             
+  ####################################################################################################################################                              
+                             
                  
                  
                  
@@ -140,6 +165,8 @@
                  
                  
                        
+
+
 
 
 
